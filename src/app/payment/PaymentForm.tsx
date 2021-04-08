@@ -144,7 +144,7 @@ const PaymentForm: FunctionComponent<PaymentFormProps & FormikProps<PaymentFormV
                 termsConditionsText={ termsConditionsText }
                 termsConditionsUrl={ termsConditionsUrl }
             /> }
-
+            <div className="fieldsContainer" id="checkout-payment-fields" />
             <div className="form-actions">
                 { shouldHidePaymentSubmitButton ?
                     <PaymentMethodSubmitButtonContainer /> :

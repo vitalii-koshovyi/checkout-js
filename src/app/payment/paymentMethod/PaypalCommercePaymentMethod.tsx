@@ -22,6 +22,7 @@ const PaypalCommercePaymentMethod: FunctionComponent<PaypalCommercePaymentMethod
         ...options,
         paypalcommerce: {
             container: '#checkout-payment-continue',
+            fieldsContainer: '#checkout-payment-fields',
             onRenderButton: () => {
                 paymentContext?.hidePaymentSubmitButton?.(rest.method, true);
             },
