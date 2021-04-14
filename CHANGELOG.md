@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.126.2-alpha.1618398021078](https://github.com/bigcommerce/checkout-js/compare/v1.126.1...v1.126.2-alpha.1618398021078) (2021-04-14)
+
+
+### Features
+
+* **payment:** PAYPAL-976 Order placement v2 draft ([ccc0ff5](https://github.com/bigcommerce/checkout-js/commit/ccc0ff550905d38c30fb897f06df2f1d7148bedd))
+
 ### [1.126.1](https://github.com/bigcommerce/checkout-js/compare/v1.126.0...v1.126.1) (2021-04-08)
 
 
