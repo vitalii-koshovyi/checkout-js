@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.153.1-alpha.1625572771026](https://github.com/bigcommerce/checkout-js/compare/v1.153.0...v1.153.1-alpha.1625572771026) (2021-07-06)
+
+
+### Features
+
+* **payment:** PAYPAL-1057 added check of showOnlyOnMobileDevices APM property for Venmo ppcommerce integration ([d21a1a7](https://github.com/bigcommerce/checkout-js/commit/d21a1a7247fc64db4ef866d9e6e2d0ef4809af77))
+
 ## [1.153.0](https://github.com/bigcommerce/checkout-js/compare/v1.152.1...v1.153.0) (2021-07-06)
 
 
