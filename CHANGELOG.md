@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.160.8-alpha.1628524120830](https://github.com/bigcommerce/checkout-js/compare/v1.156.1...v1.160.8-alpha.1628524120830) (2021-08-09)
+
+
+### Features
+
+* **checkout:** PAYPAL-1057 bump checkout-sdk version ([2794267](https://github.com/bigcommerce/checkout-js/commit/279426758aa0d3c0581e75fca3036b848e2c2b2b))
+* **payment:** INT-4141 Bump SDK. ([39525d3](https://github.com/bigcommerce/checkout-js/commit/39525d3ebfd6ef602718b2b370dffcd7400b95aa))
+* **payment:** INT-4222 Implement Hosted Form ([1f306d3](https://github.com/bigcommerce/checkout-js/commit/1f306d302730c1b9877ceb71d8555379e7a0e88a))
+* **payment:** INT-4222 Update Tests ([a6a5bd9](https://github.com/bigcommerce/checkout-js/commit/a6a5bd9f877708e2660596e240de679ef45e40bf))
+* **payment:** INT-4222 Vaulting for Moneris ([f0cc383](https://github.com/bigcommerce/checkout-js/commit/f0cc38378c8e9101ed05404110120f5ab042f851))
+* **payment:** INT-4605 Zip: Display special text for PaymentSubmitButton ([39df786](https://github.com/bigcommerce/checkout-js/commit/39df7860599fbfb2a4aa30285cd2d4eed8ac2627))
+* **payment:** PAYPAL-1057 added check of showOnlyOnMobileDevices APM property for Venmo ppcommerce integration ([85085db](https://github.com/bigcommerce/checkout-js/commit/85085dbdb6e076d2b3642fe5b900c0426d181c5a))
+* **payment:** PAYPAL-1090 bump checkout-sdk-js version ([7bdd1a3](https://github.com/bigcommerce/checkout-js/commit/7bdd1a3ab494ee6719631a17ceaaca9bfa307f38))
+
+
+### Bug Fixes
+
+* **checkout:** CUST-1572 accept marketing emails should be true when requires marketing consent is false ([56f7fd5](https://github.com/bigcommerce/checkout-js/commit/56f7fd5f9452fcc11b6265e35153bdb90fd11d48))
+* **customer:** CHECKOUT-5862 Fix create account flow from Checkout blocked due to cross origin frame ([#645](https://github.com/bigcommerce/checkout-js/issues/645)) ([60f97d5](https://github.com/bigcommerce/checkout-js/commit/60f97d5f1afa23d28654a1145d41202eeba2b548))
+* **payment:** INT-4598 handle vaulting Enable checkbox ([aa79f47](https://github.com/bigcommerce/checkout-js/commit/aa79f47090c1e2aad1e6a781191de2614ab16695))
+* **payment:** PAYMENTS-7169 fix broken UI post finalization error ([#654](https://github.com/bigcommerce/checkout-js/issues/654)) ([19aea53](https://github.com/bigcommerce/checkout-js/commit/19aea539bf7ea2f791702a75eba765632da607bc))
+
 ### [1.160.7](https://github.com/bigcommerce/checkout-js/compare/v1.160.6...v1.160.7) (2021-08-09)
 
 ### [1.160.6](https://github.com/bigcommerce/checkout-js/compare/v1.160.5...v1.160.6) (2021-08-05)
