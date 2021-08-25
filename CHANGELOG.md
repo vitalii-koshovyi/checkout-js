@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.161.3-alpha.1629894896962](https://github.com/bigcommerce/checkout-js/compare/v1.161.2...v1.161.3-alpha.1629894896962) (2021-08-25)
+
+
+### Bug Fixes
+
+* **checkout:** PAYPAL-1118 removed unnecessary collapsing of checkout list elements for APMs without widget ([b58ddfb](https://github.com/bigcommerce/checkout-js/commit/b58ddfbc1b31b4e5fc3673b7a82c999e2910cfc9))
+
 ### [1.161.2](https://github.com/bigcommerce/checkout-js/compare/v1.161.1...v1.161.2) (2021-08-18)
 
 ### [1.161.1](https://github.com/bigcommerce/checkout-js/compare/v1.161.0...v1.161.1) (2021-08-16)
