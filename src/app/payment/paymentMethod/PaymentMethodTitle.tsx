@@ -189,6 +189,11 @@ const PaymentMethodTitle: FunctionComponent<PaymentMethodTitleProps & WithLangua
         }
     };
 
+    console.log({method});
+
+    const supportedCards = method.supportedCards;
+    const supportedCardsLogosUrls = supportedCards.map((cardType: string) => `https://checkoutshopper-live.adyen.com/checkoutshopper/images/logos/${cardType.toLocaleLowerCase()}.svg`);
+
     return (
         <Fragment>
             { logoUrl && <img
@@ -209,6 +214,7 @@ const PaymentMethodTitle: FunctionComponent<PaymentMethodTitleProps & WithLangua
                 <CreditCardIconList
                     cardTypes={ compact(method.supportedCards.map(mapFromPaymentMethodCardType)) }
                     selectedCardType={ getSelectedCardType() }
+                    supportedCardsLogosUrls={ supportedCardsLogosUrls }
                 />
             </div>
         </Fragment>

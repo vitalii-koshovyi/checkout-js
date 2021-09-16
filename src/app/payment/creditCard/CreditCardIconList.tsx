@@ -23,12 +23,14 @@ export const SUPPORTED_CARD_TYPES = [
 
 export interface CreditCardIconListProps {
     selectedCardType?: string;
+    supportedCardsLogosUrls?: string[];
     cardTypes: string[];
 }
 
 const CreditCardIconList: FunctionComponent<CreditCardIconListProps> = ({
     selectedCardType,
     cardTypes,
+    supportedCardsLogosUrls,
 }) => {
     const filteredCardTypes = cardTypes
         .filter(type => SUPPORTED_CARD_TYPES.indexOf(type) !== -1);
@@ -37,9 +39,23 @@ const CreditCardIconList: FunctionComponent<CreditCardIconListProps> = ({
         return null;
     }
 
+    console.log({supportedCardsLogosUrls});
+
     return (
         <ul className="creditCardTypes-list">
-            { filteredCardTypes.map(type => (
+            { supportedCardsLogosUrls && supportedCardsLogosUrls.map(url => (
+                <li
+                    className={ classNames(
+                        'creditCardTypes-list-item'
+                    ) }
+                    key={ url }
+                >
+                    <span className="cardIcon">
+                        <img className="icon--small" src={ url } />
+                    </span>
+                </li>
+            )) }
+            { !supportedCardsLogosUrls && filteredCardTypes.map(type => (
                 <li
                     className={ classNames(
                         'creditCardTypes-list-item',
