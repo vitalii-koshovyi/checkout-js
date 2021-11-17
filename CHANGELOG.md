@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.182.2-alpha.1637149289966](https://github.com/bigcommerce/checkout-js/compare/v1.174.1...v1.182.2-alpha.1637149289966) (2021-11-17)
+
+
+### Features
+
+* **checkout:** CHECKOUT-6113 assert errors on missing address fields ([#749](https://github.com/bigcommerce/checkout-js/issues/749)) ([e94a7f2](https://github.com/bigcommerce/checkout-js/commit/e94a7f26e185b1f0d7a58b445135eb3aa14950df))
+* **payment:** BOLT-69 set create_account checkbox checked by default for Bolt Embedded payment form ([d79df83](https://github.com/bigcommerce/checkout-js/commit/d79df83e0d484b51b1a99e8efde18edcd43da334))
+* **payment:** BOLT-92 displays display name value that cames from method config ([5dc87d2](https://github.com/bigcommerce/checkout-js/commit/5dc87d29260eff98a61e46626cde0be9fe5fba74))
+* **payment:** BOLT-95 changed PaymentSubmitButtonText for Bolt payment provider ([7590ee6](https://github.com/bigcommerce/checkout-js/commit/7590ee65a1120d5a2b41f29c2a6a8bbd13b2738c))
+* **payment:** CHECKOUT-6067 Display applepay in payment step of checkout ([#744](https://github.com/bigcommerce/checkout-js/issues/744)) ([3c49607](https://github.com/bigcommerce/checkout-js/commit/3c49607c4902bd58e33d15cf34dfe34b7a93136c))
+* **payment:** INT-4917 Openpay: display the saved logo on the settings page ([0bc8828](https://github.com/bigcommerce/checkout-js/commit/0bc88286b89ae192f282646e29cbd55128d1075f))
+* **payment:** INT-4953 Change text on Digital River title checkout component ([5ba73cd](https://github.com/bigcommerce/checkout-js/commit/5ba73cde00ba28609fd04643c569b97aa498610d))
+* **payment:** PAYPAL-1123 bump checkout-sdk-js version ([58b4cd0](https://github.com/bigcommerce/checkout-js/commit/58b4cd052c5c11a6ed1e230468a371b31c751975))
+* **payment:** PAYPAL-1180 bump checkout-sdk-js version ([c8011a6](https://github.com/bigcommerce/checkout-js/commit/c8011a6b51948641595803af842448aaaf8ffa78))
+
+
+### Bug Fixes
+
+* **checkout:** CHECKOUT-4288 sort consignments based on line items order ([#735](https://github.com/bigcommerce/checkout-js/issues/735)) ([c9be55d](https://github.com/bigcommerce/checkout-js/commit/c9be55db7bba83e66eab450af3692a1eebf2803f))
+* **checkout:** CHECKOUT-5322 scroll to earliest error on iOS ([#732](https://github.com/bigcommerce/checkout-js/issues/732)) ([fd3c155](https://github.com/bigcommerce/checkout-js/commit/fd3c1556385a1213900bc20b3047e3bae7f9272b))
+* **checkout:** CHECKOUT-5961 Screen reader does not announce error messages and order confirmation messages during checkout ([b6912bb](https://github.com/bigcommerce/checkout-js/commit/b6912bb946237b7222f69b40174155d7862f0b50))
+* **checkout:** CHECKOUT-6030 remove child items from checkout address entry ([#724](https://github.com/bigcommerce/checkout-js/issues/724)) ([ba452e2](https://github.com/bigcommerce/checkout-js/commit/ba452e2c76454755b14f273b30ab34105bac5a8b))
+* **checkout:** CHECKOUT-6081 display form field default value as placeholder ([#729](https://github.com/bigcommerce/checkout-js/issues/729)) ([4eee719](https://github.com/bigcommerce/checkout-js/commit/4eee7198f4f1a66abd9e368202910900fc4327ec))
+* **checkout:** CHECKOUT-6082 localized message for the payment step initialization failure ([#739](https://github.com/bigcommerce/checkout-js/issues/739)) ([ced442a](https://github.com/bigcommerce/checkout-js/commit/ced442ab7c29181b0828575864a35c63c1189382))
+* **payment:** BOLT-70 fixed Bolt Embedded Execution error after submit ([c0ce33a](https://github.com/bigcommerce/checkout-js/commit/c0ce33ab32dfb3771fd99cb6b073c619a6e718f0))
+* **payment:** BOLT-74 bolt checkout button on mobile ([cf1a514](https://github.com/bigcommerce/checkout-js/commit/cf1a514e41bcc11460804c34721fc423b46d9157))
+* **payment:** BOLT-77 Fix the issue with store styling ([5013789](https://github.com/bigcommerce/checkout-js/commit/501378963cc8fabfb848df8a1933852d79d678aa))
+* **payment:** INT-4489 cko add method supported 'card' ([4f613f4](https://github.com/bigcommerce/checkout-js/commit/4f613f4c488205ec9acd7f6f8ad4c852d864c890))
+* **payment:** INT-4961 Bolt fraud only payment method name on checkout ([4d8e671](https://github.com/bigcommerce/checkout-js/commit/4d8e671721a55d462e8a5f56fd24f969266869a6))
+* **payment:** INT-4961 Specs ([bc7a323](https://github.com/bigcommerce/checkout-js/commit/bc7a32395751760566759392724db4e57e82b77a))
+* **payment:** PAYMENTS-4915 Changing error message for invalid_address ([0e4f0ea](https://github.com/bigcommerce/checkout-js/commit/0e4f0ea1502fafcc03a0d65e029fb1a638e5b34c))
+* **payment:** PAYMENTS-4915 Changing error message for invalid_address in other locale similar to incorrect_address ([6308e91](https://github.com/bigcommerce/checkout-js/commit/6308e9168937d09a032305cd8ffec81b018c2b6c))
+
 ### [1.182.1](https://github.com/bigcommerce/checkout-js/compare/v1.182.0...v1.182.1) (2021-11-15)
 
 ## [1.182.0](https://github.com/bigcommerce/checkout-js/compare/v1.181.0...v1.182.0) (2021-11-10)
