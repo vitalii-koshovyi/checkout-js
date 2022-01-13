@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.188.3-alpha.1642089863116](https://github.com/bigcommerce/checkout-js/compare/v1.186.0...v1.188.3-alpha.1642089863116) (2022-01-13)
+
+
+### Features
+
+* **checkout:** CHECKOUT-6248 Display Error When Tax Service Unavailable ([#761](https://github.com/bigcommerce/checkout-js/issues/761)) ([a076d3d](https://github.com/bigcommerce/checkout-js/commit/a076d3d75a9975780399052dd8073aa3a6d3d613)), closes [#722](https://github.com/bigcommerce/checkout-js/issues/722) [#764](https://github.com/bigcommerce/checkout-js/issues/764) [#762](https://github.com/bigcommerce/checkout-js/issues/762) [#768](https://github.com/bigcommerce/checkout-js/issues/768)
+* **payment:** ADYEN-359 googlepay autosubmit proof ([dfb41ea](https://github.com/bigcommerce/checkout-js/commit/dfb41ead556f7038a60d81328bd33b5d69d1261b))
+* **payment:** ADYEN-359 googlepay autosubmit proof ([13e3d26](https://github.com/bigcommerce/checkout-js/commit/13e3d266c7696a31c74de73338d3495e3aa7c3ef))
+* **payment:** INT-4893 Add translations for errors from execute step ([27abc6d](https://github.com/bigcommerce/checkout-js/commit/27abc6d0ea15f8f2d7575c74f5e43b4490038958))
+
+
+### Bug Fixes
+
+* **payment:** ADYEN-296 Card fields validation ([5a88768](https://github.com/bigcommerce/checkout-js/commit/5a8876862f4c8b9711da14750e6ed061de2c511b))
+* **payment:** INT-5153 added card code validation ([be3b723](https://github.com/bigcommerce/checkout-js/commit/be3b723c186c33d30910a073e2209eacf2c592ac))
+
 ### [1.188.2](https://github.com/bigcommerce/checkout-js/compare/v1.188.1...v1.188.2) (2022-01-04)
 
 
