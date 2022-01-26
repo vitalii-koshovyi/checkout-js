@@ -45,7 +45,6 @@ const AdyenV3PaymentMethod: FunctionComponent<AdyenPaymentMethodProps> = ({
     const containerId = `adyen-${method.id}-component-field`;
     const additionalActionContainerId = `adyen-${method.id}-additional-action-component-field`;
     const cardVerificationContainerId = `adyen-${method.id}-tsv-component-field`;
-    const threeDS2ContainerId = `adyen-${method.id}-additional-action-component-field`;
     const component = method.id as AdyenV3PaymentMethodType;
     const shouldHideInstrumentExpiryDate = component === AdyenV3PaymentMethodType.bcmc;
     const adyenOptions: AdyenOptions = {
@@ -108,15 +107,9 @@ const AdyenV3PaymentMethod: FunctionComponent<AdyenPaymentMethodProps> = ({
                 containerId,
                 hasVaultedInstruments: !!selectedInstrumentId,
                 options: adyenOptions[component],
-                threeDS2ContainerId,
                 additionalActionOptions: {
-                    containerId: additionalActionContainerId,
-                    onBeforeLoad,
-                    onComplete,
-                    onLoad,
-                },
-                threeDS2Options: {
                     widgetSize: '05',
+                    containerId: additionalActionContainerId,
                     onBeforeLoad,
                     onComplete,
                     onLoad,
@@ -125,7 +118,7 @@ const AdyenV3PaymentMethod: FunctionComponent<AdyenPaymentMethodProps> = ({
                 validateCardFields: (state: AdyenV3CardValidationState) => { setCardValidationState(state); },
             },
         });
-    }, [initializePayment, component, cardVerificationContainerId, containerId, additionalActionContainerId, threeDS2ContainerId, adyenOptions, onBeforeLoad, onComplete, onLoad]);
+    }, [initializePayment, component, cardVerificationContainerId, containerId, additionalActionContainerId, adyenOptions, onBeforeLoad, onComplete, onLoad]);
 
     const validateInstrument = (shouldShowNumberField: boolean) => {
 

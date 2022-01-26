@@ -96,13 +96,7 @@ describe('when using Adyen V3 payment', () => {
                         onBeforeLoad: expect.any(Function),
                         onComplete: expect.any(Function),
                         onLoad: expect.any(Function),
-                    },
-                    threeDS2ContainerId: 'adyen-scheme-additional-action-component-field',
-                    threeDS2Options: {
                         widgetSize: '05',
-                        onBeforeLoad: expect.any(Function),
-                        onComplete: expect.any(Function),
-                        onLoad: expect.any(Function),
                     },
                     validateCardFields: expect.any(Function),
                 },
