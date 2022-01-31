@@ -1,4 +1,4 @@
-import { AdyenComponentState } from '@bigcommerce/checkout-sdk';
+import { AdyenV3ComponentState } from '@bigcommerce/checkout-sdk';
 import classNames from 'classnames';
 import React, { useMemo, FunctionComponent } from 'react';
 
@@ -15,7 +15,7 @@ export interface AdyenV3CardValidationError {
     fieldType?: AdyenV3CardFields;
 }
 
-export type AdyenV3CardValidationState = (AdyenComponentState & AdyenV3CardValidationError);
+export type AdyenV3CardValidationState = (AdyenV3ComponentState & AdyenV3CardValidationError);
 
 export type FieldsValidation = {[key in AdyenV3CardFields]?: AdyenV3CardValidationState};
 

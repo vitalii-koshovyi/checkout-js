@@ -1,4 +1,4 @@
-import { AdyenCreditCardComponentOptions, AdyenIdealComponentOptions } from '@bigcommerce/checkout-sdk';
+import { AdyenV3CreditCardComponentOptions, AdyenV3IdealComponentOptions } from '@bigcommerce/checkout-sdk';
 import _ from 'lodash';
 import React, { createRef, useCallback, useRef, useState, FunctionComponent, RefObject } from 'react';
 import { Omit } from 'utility-types';
@@ -12,9 +12,9 @@ import HostedWidgetPaymentMethod, { HostedWidgetPaymentMethodProps } from './Hos
 export type AdyenPaymentMethodProps = Omit<HostedWidgetPaymentMethodProps, 'containerId' | 'hideContentWhenSignedOut'>;
 
 export interface AdyenOptions {
-    scheme: AdyenCreditCardComponentOptions;
-    bcmc: AdyenCreditCardComponentOptions;
-    ideal: AdyenIdealComponentOptions;
+    scheme: AdyenV3CreditCardComponentOptions;
+    bcmc: AdyenV3CreditCardComponentOptions;
+    ideal: AdyenV3IdealComponentOptions;
 }
 
 export enum AdyenV3PaymentMethodType {
