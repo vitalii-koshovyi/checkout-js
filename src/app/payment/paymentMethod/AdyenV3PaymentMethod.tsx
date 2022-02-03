@@ -12,9 +12,9 @@ import HostedWidgetPaymentMethod, { HostedWidgetPaymentMethodProps } from './Hos
 export type AdyenPaymentMethodProps = Omit<HostedWidgetPaymentMethodProps, 'containerId' | 'hideContentWhenSignedOut'>;
 
 export interface AdyenOptions {
-    scheme: AdyenV3CreditCardComponentOptions;
-    bcmc: AdyenV3CreditCardComponentOptions;
-    ideal: AdyenV3IdealComponentOptions;
+    scheme?: AdyenV3CreditCardComponentOptions;
+    bcmc?: AdyenV3CreditCardComponentOptions;
+    ideal?: AdyenV3IdealComponentOptions;
 }
 
 export enum AdyenV3PaymentMethodType {
@@ -51,12 +51,6 @@ const AdyenV3PaymentMethod: FunctionComponent<AdyenPaymentMethodProps> = ({
         [AdyenV3PaymentMethodType.scheme]: {
             hasHolderName: true,
             holderNameRequired: true,
-        },
-        [AdyenV3PaymentMethodType.bcmc]: {
-            hasHolderName: false,
-        },
-        [AdyenV3PaymentMethodType.ideal]: {
-            showImage: true,
         },
     };
 

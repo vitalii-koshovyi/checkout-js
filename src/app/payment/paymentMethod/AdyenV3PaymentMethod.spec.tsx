@@ -125,7 +125,7 @@ describe('when using Adyen V3 payment', () => {
             const initializeOptions = (defaultAdyenProps.initializePayment as jest.Mock).mock.calls[0][0];
 
             act(() => {
-                initializeOptions.adyenv3.threeDS2Options.onBeforeLoad(true);
+                initializeOptions.adyenv3.additionalActionOptions.onBeforeLoad(true);
             });
 
             await new Promise(resolve => process.nextTick(resolve));
@@ -160,7 +160,7 @@ describe('when using Adyen V3 payment', () => {
             const initializeOptions = (defaultAdyenProps.initializePayment as jest.Mock).mock.calls[0][0];
 
             act(() => {
-                initializeOptions.adyenv3.threeDS2Options.onBeforeLoad(false);
+                initializeOptions.adyenv3.additionalActionOptions.onBeforeLoad(false);
             });
 
             await new Promise(resolve => process.nextTick(resolve));
@@ -196,7 +196,7 @@ describe('when using Adyen V3 payment', () => {
             const initializeOptions = (defaultAdyenProps.initializePayment as jest.Mock).mock.calls[0][0];
 
             act(() => {
-                initializeOptions.adyenv3.threeDS2Options.onLoad(cancelAdditionalActionModalFlow, true);
+                initializeOptions.adyenv3.additionalActionOptions.onLoad(cancelAdditionalActionModalFlow, true);
             });
 
             await new Promise(resolve => process.nextTick(resolve));
