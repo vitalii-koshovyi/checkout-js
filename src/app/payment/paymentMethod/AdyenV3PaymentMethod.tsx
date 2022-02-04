@@ -1,4 +1,4 @@
-import { AdyenV3CreditCardComponentOptions, AdyenV3IdealComponentOptions } from '@bigcommerce/checkout-sdk';
+import { AdyenV3CreditCardComponentOptions } from '@bigcommerce/checkout-sdk';
 import _ from 'lodash';
 import React, { createRef, useCallback, useRef, useState, FunctionComponent, RefObject } from 'react';
 import { Omit } from 'utility-types';
@@ -14,13 +14,11 @@ export type AdyenPaymentMethodProps = Omit<HostedWidgetPaymentMethodProps, 'cont
 export interface AdyenOptions {
     scheme?: AdyenV3CreditCardComponentOptions;
     bcmc?: AdyenV3CreditCardComponentOptions;
-    ideal?: AdyenV3IdealComponentOptions;
 }
 
 export enum AdyenV3PaymentMethodType {
     scheme = 'scheme',
     bcmc = 'bcmc',
-    ideal = 'ideal',
 }
 
 interface AdyenPaymentMethodRef {
