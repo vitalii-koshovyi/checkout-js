@@ -13,7 +13,6 @@ export const SUPPORTED_METHODS: string[] = [
     'chasepay',
     'masterpass',
     'googlepayadyenv2',
-    'googlepayadyenv3',
     'googlepayauthorizenet',
     'googlepaybraintree',
     'googlepaycheckoutcom',
