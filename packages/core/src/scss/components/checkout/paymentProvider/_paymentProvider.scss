@@ -6,6 +6,12 @@
     justify-content: space-between;
 }
 
+.paymentProviderHeader-nameContainer {
+    align-items: baseline;
+    display: flex;
+    justify-content: space-between;
+}
+
 .paymentProviderHeader-img {
     align-self: center;
     display: flex;
