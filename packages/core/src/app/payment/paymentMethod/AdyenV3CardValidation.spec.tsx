@@ -1,7 +1,8 @@
+import { AdyenV3ValidationState } from '@bigcommerce/checkout-sdk';
 import { mount } from 'enzyme';
 import React, { FunctionComponent } from 'react';
 
-import AdyenV3CardValidation, { AdyenV3CardValidationProps, AdyenV3CardValidationState } from './AdyenV3CardValidation';
+import AdyenV3CardValidation, { AdyenV3CardValidationProps } from './AdyenV3CardValidation';
 
 describe('AdyenV3CardValidation', () => {
     let defaultProps: AdyenV3CardValidationProps;
@@ -24,7 +25,7 @@ describe('AdyenV3CardValidation', () => {
 
         const field = container.find('[id="encryptedSecurityCode"]');
 
-        expect(field.hasClass('adyen-checkout__input--error')).toBeFalsy();
+        expect(field.hasClass('adyen-checkout__input--error')).toBeTruthy();
         expect(field).toHaveLength(1);
     });
 
@@ -46,7 +47,7 @@ describe('AdyenV3CardValidation', () => {
             paymentMethodType: 'scheme',
             shouldShowNumberField: false,
             verificationFieldsContainerId: 'container',
-            cardValidationState: {} as AdyenV3CardValidationState,
+            cardValidationState: {} as AdyenV3ValidationState,
         };
 
         const container = mount(<AdyenV3CardValidationTest { ...defaultProps } />);
@@ -64,7 +65,7 @@ describe('AdyenV3CardValidation', () => {
             cardValidationState: {
                 fieldType: 'encryptedSecurityCode',
                 valid: false,
-            } as AdyenV3CardValidationState,
+            } as AdyenV3ValidationState,
         };
 
         const container = mount(<AdyenV3CardValidationTest { ...defaultProps } />);
