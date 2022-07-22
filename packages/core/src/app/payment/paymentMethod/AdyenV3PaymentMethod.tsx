@@ -107,7 +107,6 @@ const AdyenV3PaymentMethod: FunctionComponent<AdyenPaymentMethodProps> = ({
         return <AdyenV3CardValidation
             cardValidationState = { cardValidationState }
             paymentMethod={ method }
-            paymentMethodType={ method.method }
             selectedInstrument={ selectedInstrument }
             shouldShowNumberField={ shouldShowNumberField }
             verificationFieldsContainerId={ cardVerificationContainerId }

@@ -16,7 +16,6 @@ enum AdyenV3CardFields {
 export interface AdyenV3CardValidationProps {
     verificationFieldsContainerId?: string;
     shouldShowNumberField: boolean;
-    paymentMethodType: string;
     paymentMethod: PaymentMethod;
     cardValidationState?: AdyenV3ValidationState;
     selectedInstrument?: CardInstrument;
@@ -26,14 +25,13 @@ const AdyenV3CardValidation: FunctionComponent<AdyenV3CardValidationProps> = ({
     verificationFieldsContainerId,
     shouldShowNumberField,
     selectedInstrument,
-    paymentMethodType,
     paymentMethod,
     cardValidationState,
 }) => {
     const paymentContext = useContext(PaymentContext);
 
-    const shouldShowSecurityCode = paymentMethodType === 'scheme';
-    const shoudlShowExpiryDate = paymentMethodType === 'bcmc';
+    const shouldShowSecurityCode = paymentMethod.method === 'scheme';
+    const shoudlShowExpiryDate = paymentMethod.method === 'bcmc';
 
     const validationState: FieldsValidation = {}
     if (shouldShowNumberField) {
@@ -109,7 +107,7 @@ const AdyenV3CardValidation: FunctionComponent<AdyenV3CardValidationProps> = ({
                 <div className={ classNames(
                     'form-field',
                     'form-field--ccNumber',
-                    { 'form-field--ccNumber--hasExpiryDate': paymentMethodType === 'bcmc' },
+                    { 'form-field--ccNumber--hasExpiryDate': paymentMethod.method === 'bcmc' },
                     // This div is hiding by CSS because there is an Adyen library in
                     // checkout-sdk which mounts verification fields and if is removed with JS this mounting event will be thrown an error
                     { 'form-field-ccNumber--hide': !shouldShowNumberField }
