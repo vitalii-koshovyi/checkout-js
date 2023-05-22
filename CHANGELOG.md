@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.318.2-prerelease.1684769784461](https://github.com/bigcommerce/checkout-js/compare/v1.318.1...v1.318.2-prerelease.1684769784461) (2023-05-22)
+
+
+### Bug Fixes
+
+* **checkout:** PI-42 fixed dropdown trigger ([fa2552c](https://github.com/bigcommerce/checkout-js/commit/fa2552c469a7af352be5e0c3ed50ceebbe921639))
+
 ### [1.318.1](https://github.com/bigcommerce/checkout-js/compare/v1.318.0...v1.318.1) (2023-05-15)
 
 
