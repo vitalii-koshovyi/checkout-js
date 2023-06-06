@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.321.8-prerelease.1686040040506](https://github.com/bigcommerce/checkout-js/compare/v1.318.3...v1.321.8-prerelease.1686040040506) (2023-06-06)
+
+
+### Features
+
+* **payment:** INT-7573 Add config of Access Worldpay GooglePay ([c52806c](https://github.com/bigcommerce/checkout-js/commit/c52806c6203d40ea177c6739e8e3c99821be42b2))
+* **payment:** INT-7573 add worldpay to googlepay specs ([7cb47fe](https://github.com/bigcommerce/checkout-js/commit/7cb47fef2d24096df00039723458b763c9267393))
+* **payment:** PAYPAL-2370 mandateText for guest flow ([#1269](https://github.com/bigcommerce/checkout-js/issues/1269)) ([db39bd8](https://github.com/bigcommerce/checkout-js/commit/db39bd81c1da6ebea3eebe7d0789a0ec7f8eb412))
+* **payment:** PAYPAL-2451 Braintree ACH instrument ([#1289](https://github.com/bigcommerce/checkout-js/issues/1289)) ([6414709](https://github.com/bigcommerce/checkout-js/commit/64147092cccd6995976b0d279144a7d708083d31))
+* **payment:** PAYPAL-2451 bump checkout-sdk ([64de9eb](https://github.com/bigcommerce/checkout-js/commit/64de9eb3e96f0ca56bd6a0c86aace2ce684581a7))
+
+
+### Bug Fixes
+
+* **checkout:** PI-101 3ds2 redirect fix for adyen v3 ([5b95522](https://github.com/bigcommerce/checkout-js/commit/5b955221e23a7d24d109775b91811f9efc793efe))
+* **checkout:** PI-147 remove "Pay over time" text from the Clearpay ([8746935](https://github.com/bigcommerce/checkout-js/commit/8746935b9acbd4d1894aca76815dc9b288b98a31))
+* **checkout:** PI-48 Place Order button is disabled when customer with stored credit card deletes and re-adds card ([170a9f9](https://github.com/bigcommerce/checkout-js/commit/170a9f91182b9ba98d730437cb900c921187e473))
+* **payment:** BOLT-577 Bump checkout sdk version ([f2c79da](https://github.com/bigcommerce/checkout-js/commit/f2c79daff0b653abd6f48f5ab84b608664cbde2c))
+* **payment:** CHECKOUT-7498 Fix issue with component resolver ([#1299](https://github.com/bigcommerce/checkout-js/issues/1299)) ([cf3acf1](https://github.com/bigcommerce/checkout-js/commit/cf3acf1a99c02e3416a6dff4a27d368db2e383c1))
+
+
+### Code Refactoring
+
+* **checkout:** CHECKOUT-0000 lint auto fix ([#1298](https://github.com/bigcommerce/checkout-js/issues/1298)) ([39c7add](https://github.com/bigcommerce/checkout-js/commit/39c7add981a70c669d667a9aa58b7c1a6c9801d4))
+* **payment:** PAYPAL-2541 created paypal-commerce-integration package ([#1293](https://github.com/bigcommerce/checkout-js/issues/1293)) ([d60ccbb](https://github.com/bigcommerce/checkout-js/commit/d60ccbbc5a9afac570c457853a88f45ff5b71f7b))
+
 ### [1.321.7](https://github.com/bigcommerce/checkout-js/compare/v1.321.6...v1.321.7) (2023-06-01)
 
 
