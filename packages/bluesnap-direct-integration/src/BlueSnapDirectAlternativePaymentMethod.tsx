@@ -42,8 +42,6 @@ const BlueSnapDirectAlternativePaymentMethod: FunctionComponent<PaymentMethodPro
 
     const initializeBlueSnapDirectPayment = useCallback(
         (options: PaymentInitializeOptions) => {
-            console.log('bluesnapv2', options);
-
             return checkoutService.initializePayment({
                 gatewayId: options.gatewayId,
                 methodId: options.methodId,
@@ -73,8 +71,6 @@ const BlueSnapDirectAlternativePaymentMethod: FunctionComponent<PaymentMethodPro
         }
     }, [paymentPageContent]);
 
-    console.log({ rest });
-
     return (
         <>
             <HostedPaymentComponent
@@ -83,7 +79,7 @@ const BlueSnapDirectAlternativePaymentMethod: FunctionComponent<PaymentMethodPro
                 initializePayment={initializeBlueSnapDirectPayment}
             />
             <Modal
-                additionalModalClassName="modal--bluesnapDirect"
+                additionalModalClassName="modal--bluesnap"
                 isOpen={!!paymentPageContent}
                 onAfterOpen={appendPaymentPageContent}
                 onRequestClose={cancelBlueSnapDirectModalFlow}
@@ -99,9 +95,5 @@ const BlueSnapDirectAlternativePaymentMethod: FunctionComponent<PaymentMethodPro
 
 export default toResolvableComponent<PaymentMethodProps, PaymentMethodResolveId>(
     BlueSnapDirectAlternativePaymentMethod,
-    [
-        { id: 'banktransfer', gateway: 'bluesnapdirect' },
-        { id: 'moneybookers', gateway: 'bluesnapdirect' },
-        { id: 'paysafecard', gateway: 'bluesnapdirect' },
-    ],
+    [{ gateway: 'bluesnapdirect' }],
 );
