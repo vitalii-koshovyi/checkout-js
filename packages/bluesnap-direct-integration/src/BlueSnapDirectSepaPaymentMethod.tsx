@@ -87,7 +87,8 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
             }
             style={{ paddingBottom: '1rem' }}
         >
-            <BlueSnapDirectNumberField
+            <BlueSnapDirectTextField
+                autoComplete="iban"
                 labelContent={language.translate('payment.bluesnap_direct_iban.label')}
                 maxLength={17}
                 name="iban"
@@ -113,7 +114,7 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
                         creditorName: creditor.sepaCreditorCompanyName,
                     },
                 )}
-                name="sepaMandate"
+                name="shopperPermission"
                 onChange={toggleSubmitButton}
             />
         </Fieldset>
