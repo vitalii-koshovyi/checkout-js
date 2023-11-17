@@ -7,32 +7,41 @@ import {
 } from '@bigcommerce/checkout/payment-integration-api';
 import { CheckboxFormField, Fieldset, Legend } from '@bigcommerce/checkout/ui';
 
-import BlueSnapDirectNumberField from './BlueSnapDirectNumberField';
 import BlueSnapDirectTextField from './BlueSnapDirectTextField';
 import getSepaValidationSchema from './validation-schemas/getSepaValidationSchema';
 
-interface SepaCreditor {
-    sepaCreditorAddress: string;
-    sepaCreditorCity: string;
+interface BlueSnapDirectInitializationData {
     sepaCreditorCompanyName: string;
-    sepaCreditorCountry: string;
-    sepaCreditorIdentifier: string;
-    sepaCreditorPostalCode: string;
 }
+
+const isBlueSnapDirectInitializationData = (
+    object: unknown,
+): object is BlueSnapDirectInitializationData => {
+    if (
+        !(
+            typeof object === 'object' &&
+            object !== null &&
+            'sepaCreditorCompanyName' in object &&
+            typeof object.sepaCreditorCompanyName === 'string'
+        )
+    ) {
+        return false;
+    }
+
+    return true;
+};
 
 const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = ({
     method,
     checkoutService: { initializePayment, deinitializePayment },
     checkoutState: {
-        data: { isPaymentDataRequired, getBillingAddress },
+        data: { isPaymentDataRequired },
     },
     paymentForm: { disableSubmit, setValidationSchema },
     language,
 }) => {
-    const billingAddress = getBillingAddress();
-
-    if (!billingAddress) {
-        throw new Error('Billing address is missing');
+    if (!isBlueSnapDirectInitializationData(method.initializationData)) {
+        throw new Error('Unable to get initialization data');
     }
 
     const [disabled, setDisabled] = useState(true);
@@ -61,14 +70,6 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
             methodId: method.id,
         });
     }, [deinitializePayment, method.gateway, method.id]);
-    // TODO: Remove fallback
-    const creditor: SepaCreditor = method.initializationData.sepaCreditor || {
-        sepaCreditorCompanyName: 'Test Store',
-        sepaCreditorAddress: 'Horyva 5',
-        sepaCreditorPostalCode: '04116',
-        sepaCreditorCity: 'Kyiv',
-        sepaCreditorCountry: 'Ukraine',
-    };
 
     useEffect(() => {
         void initializeSepa();
@@ -111,7 +112,7 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
                 labelContent={language.translate(
                     'payment.bluesnap_direct_sepa_mandate_disclaimer',
                     {
-                        creditorName: creditor.sepaCreditorCompanyName,
+                        creditorName: method.initializationData.sepaCreditorCompanyName,
                     },
                 )}
                 name="shopperPermission"
@@ -123,6 +124,5 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
 
 export default toResolvableComponent<PaymentMethodProps, PaymentMethodResolveId>(
     BlueSnapDirectSepaPaymentMethod,
-    // TODO: SEPA
-    [{ id: 'giropay', gateway: 'bluesnapdirect' }],
+    [{ id: 'sepa_direct_debit', gateway: 'bluesnapdirect' }],
 );
