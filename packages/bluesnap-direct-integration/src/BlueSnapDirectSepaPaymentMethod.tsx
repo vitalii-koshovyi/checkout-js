@@ -91,19 +91,16 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
             <BlueSnapDirectTextField
                 autoComplete="iban"
                 labelContent={language.translate('payment.bluesnap_direct_iban.label')}
-                maxLength={17}
                 name="iban"
                 useFloatingLabel={true}
             />
             <BlueSnapDirectTextField
                 labelContent={language.translate('address.first_name_label')}
-                maxLength={17}
                 name="firstName"
                 useFloatingLabel={true}
             />
             <BlueSnapDirectTextField
                 labelContent={language.translate('address.last_name_label')}
-                maxLength={17}
                 name="lastName"
                 useFloatingLabel={true}
             />
