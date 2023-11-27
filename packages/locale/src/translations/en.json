@@ -540,6 +540,9 @@
                 "adyenv3": {
                     "boletobancario": "Boleto Bancário Ticket"
                 },
+                "bluesnapdirect": {
+                    "sepa_direct_debit":  "SEPA Direct Debit Mandate Reference: {mandate}"
+                },
                 "checkoutcom": {
                     "boleto": "Boleto Bancário Ticket",
                     "oxxo": "OXXO Ticket",
@@ -556,7 +559,7 @@
                 },
                 "paypalcommercealternativemethods": {
                     "oxxo": "OXXO Ticket",
-                    "ratepay":{
+                    "ratepay": {
                         "account_holder_name": "Account Holder",
                         "iban": "Iban",
                         "payment_reference": "Payment Reference"
