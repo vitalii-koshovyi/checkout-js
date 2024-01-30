@@ -21,10 +21,6 @@ const useEcpInstruments = (method: PaymentMethod) => {
     const shouldShowInstrumentFieldset =
         isInstrumentFeatureAvailable && accountInstruments.length > 0;
     const shouldCreateNewInstrument = shouldShowInstrumentFieldset && !currentInstrument;
-    const shouldConfirmInstrument =
-        shouldShowInstrumentFieldset &&
-        !!currentInstrument &&
-        !currentInstrument.trustedShippingAddress;
 
     const getDefaultInstrument = (): AchInstrument | undefined => {
         if (!accountInstruments.length) {
@@ -72,7 +68,6 @@ const useEcpInstruments = (method: PaymentMethod) => {
         isInstrumentFeatureAvailable,
         shouldShowInstrumentFieldset,
         shouldCreateNewInstrument,
-        shouldConfirmInstrument,
     };
 };
 

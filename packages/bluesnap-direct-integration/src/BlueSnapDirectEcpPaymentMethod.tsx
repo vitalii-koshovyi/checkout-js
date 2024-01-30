@@ -65,11 +65,9 @@ const BlueSnapDirectEcpPaymentMethod: FunctionComponent<PaymentMethodProps> = ({
         isInstrumentFeatureAvailable,
         shouldShowInstrumentFieldset,
         shouldCreateNewInstrument,
-        shouldConfirmInstrument,
     } = useEcpInstruments(method);
 
-    const shouldShowForm =
-        !shouldShowInstrumentFieldset || shouldCreateNewInstrument || shouldConfirmInstrument;
+    const shouldShowForm = !shouldShowInstrumentFieldset || shouldCreateNewInstrument;
 
     useEffect(() => {
         setValidationSchema(method, getEcpValidationSchema(language, shouldShowForm));

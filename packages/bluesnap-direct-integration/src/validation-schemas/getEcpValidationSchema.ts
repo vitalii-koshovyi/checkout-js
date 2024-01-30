@@ -6,31 +6,37 @@ export default memoize(function getEcpValidationSchema(
     language: LanguageService,
     shouldRenderFields,
 ): ObjectSchema {
-    let schema = {
-        instrumentId: string().required(),
+    const schema = {
+        ...(!shouldRenderFields ? { instrumentId: string().required() } : {}),
+        ...(shouldRenderFields
+            ? {
+                  accountNumber: string()
+                      .required(
+                          language.translate('payment.bluesnap_direct_account_number.is_required'),
+                      )
+                      .matches(
+                          /^\d+$/,
+                          language.translate('payment.bluesnap_direct_account_number.only_numbers'),
+                      )
+                      .min(8, language.translate('payment.bluesnap_direct_account_number.length')),
+                  routingNumber: string()
+                      .required(
+                          language.translate('payment.bluesnap_direct_routing_number.is_required'),
+                      )
+                      .matches(
+                          /^\d+$/,
+                          language.translate('payment.bluesnap_direct_routing_number.only_numbers'),
+                      )
+                      .length(
+                          9,
+                          language.translate('payment.bluesnap_direct_routing_number.length'),
+                      ),
+                  accountType: string().required(
+                      language.translate('payment.bluesnap_direct_account_type.is_required'),
+                  ),
+              }
+            : {}),
     };
-
-    if (shouldRenderFields) {
-        schema = {
-            accountNumber: string()
-                .required(language.translate('payment.bluesnap_direct_account_number.is_required'))
-                .matches(
-                    /^\d+$/,
-                    language.translate('payment.bluesnap_direct_account_number.only_numbers'),
-                )
-                .min(8, language.translate('payment.bluesnap_direct_account_number.length')),
-            routingNumber: string()
-                .required(language.translate('payment.bluesnap_direct_routing_number.is_required'))
-                .matches(
-                    /^\d+$/,
-                    language.translate('payment.bluesnap_direct_routing_number.only_numbers'),
-                )
-                .length(9, language.translate('payment.bluesnap_direct_routing_number.length')),
-            accountType: string().required(
-                language.translate('payment.bluesnap_direct_account_type.is_required'),
-            ),
-        };
-    }
 
     return object(schema);
 });
