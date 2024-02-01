@@ -1,6 +1,10 @@
 import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
 
 import {
+    AccountInstrumentFieldset,
+    StoreInstrumentFieldset,
+} from '@bigcommerce/checkout/instrument-utils';
+import {
     PaymentMethodProps,
     PaymentMethodResolveId,
     toResolvableComponent,
@@ -9,6 +13,7 @@ import { CheckboxFormField, Fieldset, Legend } from '@bigcommerce/checkout/ui';
 
 import { isBlueSnapDirectInitializationData } from './BlueSnapDirectInitializationData';
 import BlueSnapDirectTextField from './fields/BlueSnapDirectTextField';
+import useSepaInstruments from './hooks/useSepaInstruments';
 import getSepaValidationSchema from './validation-schemas/getSepaValidationSchema';
 
 const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = ({
@@ -36,13 +41,11 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
     );
 
     const initializeSepa = useCallback(async () => {
-        setValidationSchema(method, getSepaValidationSchema(language));
-
         await initializePayment({
             gatewayId: method.gateway,
             methodId: method.id,
         });
-    }, [initializePayment, method, setValidationSchema, language]);
+    }, [initializePayment, method]);
 
     const deinitializeSepa = useCallback(async () => {
         await deinitializePayment({
@@ -59,6 +62,22 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
         };
     }, [deinitializeSepa, initializeSepa]);
 
+    const {
+        accountInstruments,
+        currentInstrument,
+        handleSelectInstrument,
+        handleUseNewInstrument,
+        isInstrumentFeatureAvailable,
+        shouldShowInstrumentFieldset,
+        shouldCreateNewInstrument,
+    } = useSepaInstruments(method);
+
+    const shouldShowForm = !shouldShowInstrumentFieldset || shouldCreateNewInstrument;
+
+    useEffect(() => {
+        setValidationSchema(method, getSepaValidationSchema(language, shouldShowForm));
+    }, [language, shouldShowForm, setValidationSchema, method]);
+
     return (
         <Fieldset
             legend={
@@ -68,22 +87,36 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
             }
             style={{ paddingBottom: '1rem' }}
         >
-            <BlueSnapDirectTextField
-                autoComplete="iban"
-                labelContent={language.translate('payment.bluesnap_direct_iban.label')}
-                name="iban"
-                useFloatingLabel={true}
-            />
-            <BlueSnapDirectTextField
-                labelContent={language.translate('address.first_name_label')}
-                name="firstName"
-                useFloatingLabel={true}
-            />
-            <BlueSnapDirectTextField
-                labelContent={language.translate('address.last_name_label')}
-                name="lastName"
-                useFloatingLabel={true}
-            />
+            {shouldShowInstrumentFieldset && (
+                <div className="checkout-ach-form__instrument">
+                    <AccountInstrumentFieldset
+                        instruments={accountInstruments}
+                        onSelectInstrument={handleSelectInstrument}
+                        onUseNewInstrument={handleUseNewInstrument}
+                        selectedInstrument={currentInstrument}
+                    />
+                </div>
+            )}
+            {shouldShowForm && (
+                <>
+                    <BlueSnapDirectTextField
+                        autoComplete="iban"
+                        labelContent={language.translate('payment.bluesnap_direct_iban.label')}
+                        name="iban"
+                        useFloatingLabel={true}
+                    />
+                    <BlueSnapDirectTextField
+                        labelContent={language.translate('address.first_name_label')}
+                        name="firstName"
+                        useFloatingLabel={true}
+                    />
+                    <BlueSnapDirectTextField
+                        labelContent={language.translate('address.last_name_label')}
+                        name="lastName"
+                        useFloatingLabel={true}
+                    />
+                </>
+            )}
 
             <CheckboxFormField
                 labelContent={language.translate(
@@ -95,6 +128,13 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
                 name="shopperPermission"
                 onChange={toggleSubmitButton}
             />
+
+            {isInstrumentFeatureAvailable && (
+                <StoreInstrumentFieldset
+                    instrumentId={currentInstrument?.bigpayToken}
+                    isAccountInstrument
+                />
+            )}
         </Fieldset>
     );
 };
