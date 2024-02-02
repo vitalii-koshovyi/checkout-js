@@ -91,6 +91,16 @@ export function getInstruments(): PaymentInstrument[] {
             method: 'ach',
             type: 'bank',
         },
+        {
+            bigpayToken: '34567456',
+            provider: 'bluesnap',
+            accountNumber: '0000',
+            issuer: '011000015',
+            trustedShippingAddress: false,
+            defaultInstrument: false,
+            method: 'ecp',
+            type: 'bank',
+        },
     ];
 }
 
