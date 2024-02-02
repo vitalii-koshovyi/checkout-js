@@ -35,10 +35,9 @@ const useSepaInstruments = (method: PaymentMethod) => {
         );
 
         return defaultAccountInstrument[0] || accountInstruments[0];
-    }, []);
+    }, [accountInstruments]);
 
     useEffect(() => {
-        console.log('setCurrentInstrument');
         setCurrentInstrument(isInstrumentFeatureAvailable ? getDefaultInstrument() : undefined);
     }, [isInstrumentFeatureAvailable, getDefaultInstrument]);
 
