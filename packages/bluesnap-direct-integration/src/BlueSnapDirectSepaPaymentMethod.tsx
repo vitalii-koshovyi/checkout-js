@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import React, { FunctionComponent, useCallback, useEffect, useRef, useState } from 'react';
 
 import {
     AccountInstrumentFieldset,
@@ -16,15 +16,19 @@ import BlueSnapDirectTextField from './fields/BlueSnapDirectTextField';
 import useSepaInstruments from './hooks/useSepaInstruments';
 import getSepaValidationSchema from './validation-schemas/getSepaValidationSchema';
 
-const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = ({
-    method,
-    checkoutService: { initializePayment, deinitializePayment },
-    checkoutState: {
-        data: { isPaymentDataRequired },
-    },
-    paymentForm: { disableSubmit, setValidationSchema },
-    language,
-}) => {
+const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (props) => {
+    const {
+        method,
+        checkoutService: { initializePayment, deinitializePayment },
+        checkoutState: {
+            data: { isPaymentDataRequired },
+        },
+        paymentForm: { disableSubmit, setValidationSchema },
+        language,
+    } = props;
+
+    const prev = useRef(props);
+
     if (!isBlueSnapDirectInitializationData(method.initializationData)) {
         throw new Error('Unable to get initialization data');
     }
@@ -77,6 +81,22 @@ const BlueSnapDirectSepaPaymentMethod: FunctionComponent<PaymentMethodProps> = (
     useEffect(() => {
         setValidationSchema(method, getSepaValidationSchema(language, shouldShowForm));
     }, [language, shouldShowForm, setValidationSchema, method]);
+
+    useEffect(() => {
+        const changedProps = Object.entries(props).reduce((ps, [k, v]) => {
+            if (prev.current[k] !== v) {
+                ps[k] = [prev.current[k], v];
+            }
+
+            return ps;
+        }, {});
+
+        if (Object.keys(changedProps).length > 0) {
+            console.log('Changed props:', changedProps);
+        }
+
+        prev.current = props;
+    });
 
     return (
         <Fieldset
