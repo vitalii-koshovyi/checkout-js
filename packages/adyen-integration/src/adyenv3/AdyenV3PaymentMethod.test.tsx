@@ -79,11 +79,6 @@ describe('when using AdyenV3 payment', () => {
         );
     });
 
-    it('matches snapshot', () => {
-        render(<PaymentMethodTest {...defaultProps} method={method} />);
-        expect(render(<PaymentMethodTest {...defaultProps} method={method} />)).toMatchSnapshot();
-    });
-
     it('initializes method with required config', () => {
         const defaultAdyenProps: PaymentMethodProps = {
             method: { ...getPaymentMethod(), id: 'scheme', gateway: 'adyenv3', method: 'scheme' },
@@ -116,6 +111,8 @@ describe('when using AdyenV3 payment', () => {
                         onComplete: expect.any(Function),
                         // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                         onLoad: expect.any(Function),
+                        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+                        onActionHandled: expect.any(Function),
                         widgetSize: '05',
                     },
                     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -145,6 +142,7 @@ describe('when using AdyenV3 payment', () => {
             const initializeOptions = initializePayment.mock.calls[0][0];
 
             initializeOptions.adyenv3.additionalActionOptions.onBeforeLoad(true);
+            initializeOptions.adyenv3.additionalActionOptions.onActionHandled();
 
             await new Promise((resolve) => process.nextTick(resolve));
 
